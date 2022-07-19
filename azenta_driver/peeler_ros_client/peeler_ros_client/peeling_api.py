@@ -35,6 +35,8 @@ def add_work_to_peeler(self):  #TODO: do something with item
     try:
         if get_node_info(self, "P")["state"] != self.state["QUEUED"]:
             self.logger.warning("Can't start the peeling job. Peeler is not in QUEUED state!")
+            return
+        
 
       
     #     # Get node information

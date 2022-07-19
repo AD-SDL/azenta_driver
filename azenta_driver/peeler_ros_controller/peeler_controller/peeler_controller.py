@@ -101,7 +101,7 @@ class PeelerController(Node):
         #  peeler State Syncronization topic 
         self.state_sync = self.create_subscription(PeelerStateUpdate, "/peeler/peeler_state_update", self.peeler_state_update_callback, 10)
         self.state_sync # prevent unused variable warning
-        self.start_work_service = self.create_service(StartWorkPeeler, "/peeler/start_work", self.start_work_handler)
+        self.start_work_service = self.create_service(StartWorkPeeler, "/peeler/start_work_peeler", self.start_work_handler)
         # Initialization Complete
         
         self.get_logger().info(
@@ -113,7 +113,7 @@ class PeelerController(Node):
         self.dead = False 
         
         # Create a thread to run heartbeat_transmitter
-        heartbeat_thread = Thread(target=heartbeat_transmitter,args=(self,))
+        heartbeat_thread = Thread(target=heartbeat_transmitter, args=(self,))
         heartbeat_thread.start()
 
     def start_work_handler(self, request, response): #TODO
