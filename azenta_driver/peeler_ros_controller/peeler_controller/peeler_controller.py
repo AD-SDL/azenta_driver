@@ -118,11 +118,15 @@ class PeelerController(Node):
 
     def start_work_handler(self, request, response): #TODO
         print("Do some job ......")
+
+        response = StartWorkPeeler.Response()
         # set state to busy
         # start peeling
         # Done peeling
         # set state to completed
         #return response # this response only has status
+        # response.status = response.SUCCSESS
+        # return response
 
     '''
         Retrieves the next transfer to run in the queue
